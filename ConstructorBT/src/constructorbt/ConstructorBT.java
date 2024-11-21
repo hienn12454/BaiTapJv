@@ -30,9 +30,10 @@ public class ConstructorBT {
 //          System.out.println(book.getTitle());
 //          System.out.println(book.getAuthor());
 //          System.out.println(book.getPrice());
-            Account acc = new Account();
-            acc.input();
-            acc.show();
+//            Account acc = new Account();
+//            acc.input();
+//            
+            
             
     }
     
