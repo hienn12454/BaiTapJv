@@ -10,20 +10,23 @@ package model;
  * @author TUF
  */
 public class Event {
+
     private String name;
+    private String id;
     private String date;
     private String location;
-    private int number_attendees;
+    private int attendees;
     private String status;
 
-    public Event() {
-    }
 
-    public Event(String name, String date, String location, int number_attendees, String status) {
+
+
+    public Event(String name, String id, String date, String location, int attendees, String status) {
         this.name = name;
+        this.id = id;
         this.date = date;
         this.location = location;
-        this.number_attendees = number_attendees;
+        this.attendees = attendees;
         this.status = status;
     }
 
@@ -51,12 +54,12 @@ public class Event {
         this.location = location;
     }
 
-    public int getNumber_attendees() {
-        return number_attendees;
+    public int getAttendees() {
+        return attendees;
     }
 
-    public void setNumber_attendees(int number_attendees) {
-        this.number_attendees = number_attendees;
+    public void setAttendees(int attendees) {
+        this.attendees = attendees;
     }
 
     public String getStatus() {
@@ -67,9 +70,25 @@ public class Event {
         this.status = status;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+     public static Event fromString(String line) {
+        String[] fields = line.split("-");
+        return new Event(fields[0], fields[1], fields[2], (fields[3]), Integer.parseInt(fields[4]), fields[5]);
+    }
+
     @Override
     public String toString() {
-        return "Event{" + "name=" + name + ", date=" + date + ", location=" + location + ", number_attendees=" + number_attendees + ", status=" + status + '}';
+        return name + "-" + id + "-" + date + "-" + location + "-" + attendees + "-" + status;
     }
     
+    
+
+
 }
